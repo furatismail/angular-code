@@ -1,0 +1,7 @@
+<app-header></app-header>
+<app-main></app-main>
+<app-sidebar></app-sidebar>
+
+<div *ngFor="let film of films">
+    <app-card [title]="film"></app-card>
+</div>
