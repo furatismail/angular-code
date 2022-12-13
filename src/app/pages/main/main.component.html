@@ -1,6 +1,7 @@
 <p>main works!</p>
 <app-sidebar></app-sidebar>
 
+{{todos$ | async | json}}
 
 <button (click)="callApi()">ZAVOLAT TODOS</button>
 
