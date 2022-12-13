@@ -1,0 +1,14 @@
+<mat-sidenav-container class="example-container">
+    
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="sidenav">
+        <mat-toolbar color="primary">Gopas</mat-toolbar>
+        <ng-content select="[menu]"></ng-content>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">Uživatelské jméno: ...</mat-toolbar>
+        <ng-content select="[content]"></ng-content>
+    </mat-sidenav-content>
+
+
+</mat-sidenav-container>

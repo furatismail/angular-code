@@ -13,9 +13,22 @@
 <a href="http://localhost:4200/about-us">About us</a> | 
 <a href="http://localhost:4200/products">Products</a>  -->
 
-<a routerLink="/main">Main</a> |  
+<!-- <a routerLink="/main">Main</a> |  
 <a routerLink="/about-us">About us</a> | 
 <a routerLink="/products">Products</a> 
 
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+
+
+
+<app-layout>
+    <div menu>
+        <a routerLink="/main">Main</a> |
+        <a routerLink="/about-us">About us</a> |
+        <a routerLink="/products">Products</a>
+    </div>
+
+    <router-outlet content></router-outlet>
+</app-layout>
