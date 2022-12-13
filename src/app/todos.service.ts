@@ -17,4 +17,24 @@ export class TodosService {
   getAllAsync(): Promise<Array<Todo>> {
     return lastValueFrom(this.httpClient.get<Array<Todo>>('https://jsonplaceholder.typicode.com/todos'));
   }
+
+  getExampleObservable() {
+    const observable = new Observable((subscriber) => {
+      subscriber.next(1);
+      subscriber.next(2);
+      subscriber.next(3);
+      setTimeout(() => {
+        subscriber.next(4);
+      }, 1000);
+      setTimeout(() => {
+        subscriber.next(5);
+      }, 2000);
+      setTimeout(() => {
+        subscriber.next(6);
+        subscriber.complete();
+      }, 3000);
+    })
+
+    return observable;
+  }
 }
