@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { SignUpModule } from './pages/sign-up/sign-up.module';
+import { ParentChildModule } from './pages/parent-child/parent-child.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     HttpClientModule,
     BrowserAnimationsModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    SignUpModule,
+    ParentChildModule
   ],
   providers: [
   ],

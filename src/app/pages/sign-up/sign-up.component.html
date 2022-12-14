@@ -1,0 +1,49 @@
+<!-- TEMPLATE DRIVEN FORMs -->
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <label>
+        <span appHightlight>Cele jmeno</span>
+        <input type="text" 
+        name="name" 
+        [ngModel]="user.name" 
+        #userNameCtrl="ngModel" 
+        required 
+        minlength="2" 
+        (ngModelChange)="validateBlockedValues($event)">
+    </label>
+    <div *ngIf="userNameCtrl.errors?.blockedValue && (userNameCtrl.touched || f.submitted)" class="error">
+        Zadali jste neplatnou hodnotu
+    </div>
+    <div *ngIf="userNameCtrl.errors?.required && (userNameCtrl.touched || f.submitted)" class="error">
+        Toto pole je povinné
+    </div>
+    <div *ngIf="userNameCtrl.errors?.minlength && (userNameCtrl.touched || f.submitted)" class="error">
+        Minimalne zadejte 2 znaky
+    </div>
+
+    <div ngModelGroup="account" #userAccountCtrl="ngModelGroup">
+        <label>
+            <span>E-mail</span>
+            <input type="text" name="email" [(ngModel)]="user.account.email" required>
+        </label>
+
+        <label>
+            <span>Confirm</span>
+            <input type="text" name="confirm" [(ngModel)]="user.account.confirm" required>
+        </label>
+        <div *ngIf="userAccountCtrl.invalid && (userAccountCtrl.touched || f.submitted)" class="error">
+            Oba e-maily jsou povinne
+        </div>
+    </div>
+
+    <label>
+        <span>Heslo</span>
+        <input type="text" name="password" [(ngModel)]="user.password" required appPasswordStr minLengthValue="2" #passwordCtrl="ngModel">
+    </label>
+    <div *ngIf="passwordCtrl.errors?.passwordInvalid && (passwordCtrl.touched || f.submitted)" class="error">
+       Moc slabe heslo, zadejte silnejsi
+    </div>
+
+    <button type="submit">Sign up</button>
+</form>
+
+{{user | json}}
