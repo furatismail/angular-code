@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Todo } from 'src/app/interfaces/todo.interface';
+import { Component } from '@angular/core';
+import { DataSharingService } from 'src/app/data-sharing.service';
 import { TodosService } from 'src/app/todos.service';
 
 @Component({
@@ -8,36 +7,17 @@ import { TodosService } from 'src/app/todos.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css'],
 })
-export class MainComponent implements OnDestroy, OnInit {
-  data: any;
-  todos$!: Observable<Array<Todo>>
-  private subscription!: Subscription;
+export class MainComponent {
 
-  constructor(private todosService: TodosService) {
+  constructor(private todosService: TodosService, private dataSharingService: DataSharingService) {
     console.log('Constructor')
-  }
-
-  ngOnInit(): void {
-    console.log('ngOnInit')
-    this.todos$ = this.todosService.getAll();
-  }
-
-  callApi() {
-    this.todos$ = this.todosService.getAll();
-    // this.subscription = this.todosService.getAll().subscribe((response) => console.log(response));
-    // this.todosService.getExampleObservable().subscribe((res: any) => {
-    //   console.log(res)
-    //   this.data = res
-    // })
   }
 
   async callApi2() {
     const response = await this.todosService.getAllAsync();
     console.log(response)
+    const todo = response[0];
+    this.dataSharingService.emitData(todo);
   }
 
-  ngOnDestroy() {
-    console.log('run')
- //   this.subscription.unsubscribe();
-  }
 }

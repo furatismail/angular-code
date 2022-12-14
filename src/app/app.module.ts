@@ -30,7 +30,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatToolbarModule
   ],
   providers: [
-    
   ],
   bootstrap: [AppComponent]
 })

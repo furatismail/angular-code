@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { lastValueFrom, Observable } from 'rxjs';
 import { Todo } from './interfaces/todo.interface';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: "root" })
 export class TodosService {
 
   constructor(private httpClient: HttpClient) { }
