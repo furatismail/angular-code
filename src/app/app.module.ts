@@ -14,6 +14,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { SignUpModule } from './pages/sign-up/sign-up.module';
 import { ParentChildModule } from './pages/parent-child/parent-child.module';
 import { TemplateArrayModule } from './pages/template-array/template-array.module';
+import { ReactiveSignUpModule } from './pages/reactive-sign-up/reactive-sign-up.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { TemplateArrayModule } from './pages/template-array/template-array.modul
     MatToolbarModule,
     SignUpModule,
     ParentChildModule,
-    TemplateArrayModule
+    TemplateArrayModule,
+    ReactiveSignUpModule
   ],
   providers: [
   ],

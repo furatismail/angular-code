@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutUsComponent } from '../pages/about-us/about-us.component';
 import { MainComponent } from '../pages/main/main.component';
 import { ParentComponent } from '../pages/parent-child/parent/parent.component';
+import { ReactiveSignUpComponent } from '../pages/reactive-sign-up/reactive-sign-up.component';
 import { SignUpComponent } from '../pages/sign-up/sign-up.component';
 import { TemplateArrayComponent } from '../pages/template-array/template-array.component';
 
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: "template-array",
     component: TemplateArrayComponent
+  },
+  {
+    path: "reactive-sign-up",
+    component: ReactiveSignUpComponent
   },
   {
     path: "products",

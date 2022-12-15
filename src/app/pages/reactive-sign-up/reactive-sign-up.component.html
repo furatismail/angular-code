@@ -1,0 +1,21 @@
+<!-- REACTIVE FORMs -->
+<form [formGroup]="user">
+    <label>
+        <span>Cele jmeno</span>
+        <input type="text" formControlName="name">
+    </label>
+
+    <div formGroupName="account">
+        <label>
+            <span>E-mail</span>
+            <input type="text" formControlName="email">
+        </label>
+
+        <label>
+            <span>Confirm</span>
+            <input type="text" formControlName="confirm">
+        </label>
+    </div>
+
+    <button (click)="onSubmit()">Sign up</button>
+</form>
