@@ -4,6 +4,7 @@ import { AboutUsComponent } from '../pages/about-us/about-us.component';
 import { MainComponent } from '../pages/main/main.component';
 import { ParentComponent } from '../pages/parent-child/parent/parent.component';
 import { SignUpComponent } from '../pages/sign-up/sign-up.component';
+import { TemplateArrayComponent } from '../pages/template-array/template-array.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "parent-child",
     component: ParentComponent
+  },
+  {
+    path: "template-array",
+    component: TemplateArrayComponent
   },
   {
     path: "products",

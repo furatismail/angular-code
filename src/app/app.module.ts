@@ -13,6 +13,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { SignUpModule } from './pages/sign-up/sign-up.module';
 import { ParentChildModule } from './pages/parent-child/parent-child.module';
+import { TemplateArrayModule } from './pages/template-array/template-array.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ParentChildModule } from './pages/parent-child/parent-child.module';
     MatSidenavModule,
     MatToolbarModule,
     SignUpModule,
-    ParentChildModule
+    ParentChildModule,
+    TemplateArrayModule
   ],
   providers: [
   ],

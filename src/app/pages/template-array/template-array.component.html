@@ -1,0 +1,11 @@
+<button (click)="plus()">PRIDAT INPUT</button>
+
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div *ngFor="let dog of dogs; let index = index;">
+        <div ngModelGroup="{{index}}">
+            {{dog.dogName}} {{index}}
+            <input type="text" name="dogName" [ngModel]="dog.dogName" #dogNameCtrl="ngModel">
+        </div>
+    </div>
+    <button type="submit">Submit</button>
+</form>
