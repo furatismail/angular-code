@@ -15,11 +15,16 @@ import { SignUpModule } from './pages/sign-up/sign-up.module';
 import { ParentChildModule } from './pages/parent-child/parent-child.module';
 import { TemplateArrayModule } from './pages/template-array/template-array.module';
 import { ReactiveSignUpModule } from './pages/reactive-sign-up/reactive-sign-up.module';
+import { LoginModule } from './pages/login/login.module';
+import { BlankComponent } from './blank/blank.component';
+import { WithLayoutComponent } from './with-layout/with-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
+    BlankComponent,
+    WithLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import { ReactiveSignUpModule } from './pages/reactive-sign-up/reactive-sign-up.
     SignUpModule,
     ParentChildModule,
     TemplateArrayModule,
-    ReactiveSignUpModule
+    ReactiveSignUpModule,
+    LoginModule
   ],
   providers: [
   ],

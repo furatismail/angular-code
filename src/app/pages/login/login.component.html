@@ -1,0 +1,25 @@
+<div style="margin: 50px 600px;">
+    <form class="example-form" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <mat-form-field class="example-full-width">
+            <mat-label>Jmeno</mat-label>
+            <input type="text" matInput placeholder="Jmeno" name="userName" [ngModel]="loginForm.userName"
+                #userNameCtrl="ngModel" required>
+            <mat-error *ngIf="userNameCtrl?.errors?.required">
+                Toto pole je povinne
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Heslo</mat-label>
+            <input type="password" matInput placeholder="Heslo" name="password" [ngModel]="loginForm.password"
+                #passwordCtrl="ngModel" required>
+            <mat-error *ngIf="passwordCtrl?.errors?.required">
+                Toto pole je povinne
+            </mat-error>
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button color="primary">Odeslat</button>
+
+    </form>
+</div>

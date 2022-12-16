@@ -1,2 +1,13 @@
 
- <button (click)="callApi2()">ZAVOLAT TODOS jako PROMISE</button>
+{{ title | uppercase }}
+
+<div *ngFor="let todo of todos">
+                        // true ==> done nebo //false ==> close
+    {{todo.title}}: <mat-icon>{{todo.completed | myIcon}}</mat-icon>
+    <br>
+</div>
+
+
+<button (click)="callApi2()">ZAVOLAT TODOS jako PROMISE</button>
+
+<router-outlet></router-outlet>

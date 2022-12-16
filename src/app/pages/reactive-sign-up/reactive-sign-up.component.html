@@ -1,21 +1,60 @@
 <!-- REACTIVE FORMs -->
 <form [formGroup]="user">
-    <label>
-        <span>Cele jmeno</span>
-        <input type="text" formControlName="name">
-    </label>
+    <div *ngIf="false">
+        <label>
+            <span>Cele jmeno</span>
+            <input type="text" formControlName="name">
+        </label>
+        <div class="error" *ngIf="(name.touched || isSubmitted) && name.hasError('required')">Toto pole je povinne
+        </div>
+        <div class="error" *ngIf="(name.touched || isSubmitted) && name.hasError('minlength')">Zadejte minimalne 2
+            znaky</div>
+        <hr>
+        touched: {{name?.touched}}
+        required: {{name?.hasError('required')}}
+        isSubmitted: {{isSubmitted}}
+        <hr>
+    </div>
+
 
     <div formGroupName="account">
         <label>
             <span>E-mail</span>
             <input type="text" formControlName="email">
         </label>
+        <div class="error"
+            *ngIf="user.get('account')?.get('email')?.touched && user.get('account')?.get('email')?.hasError('required')">
+            Toto pole je povinne
+        </div>
+
+        <div class="error"
+            *ngIf="user.get('account')?.get('email')?.touched && user.get('account')?.get('email')?.hasError('isNotUnique')">
+            Tento email neni povoleny. Zadejte unikatni email.
+        </div>
+
+        <div class="error"
+            *ngIf="user.get('account')?.get('email')?.touched && user.get('account')?.get('email')?.hasError('duplicityError')">
+            Tento e-mail je jiz zaregistrovany
+        </div>
 
         <label>
             <span>Confirm</span>
             <input type="text" formControlName="confirm">
         </label>
     </div>
+
+    <div style="margin: 50px;">
+        <div formArrayName="skills">
+            <div *ngFor="let skill of skills.controls; let index = index;">
+                <input type="text" [formControlName]="index">
+                <div style="margin: 20px;">
+                    <button (click)="removeSkill(index)">SMAZAT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button (click)="addSkill()">Add skill</button>
 
     <button (click)="onSubmit()">Sign up</button>
 </form>
