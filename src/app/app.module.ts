@@ -6,7 +6,7 @@ import { SidebarModule } from './components/sidebar/sidebar.module';
 import { MainModule } from './pages/main/main.module';
 import { RoutingModule } from './routing/routing.module';
 import { UiModule } from './ui/ui.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutComponent } from './layout/layout.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
@@ -18,6 +18,7 @@ import { ReactiveSignUpModule } from './pages/reactive-sign-up/reactive-sign-up.
 import { LoginModule } from './pages/login/login.module';
 import { BlankComponent } from './blank/blank.component';
 import { WithLayoutComponent } from './with-layout/with-layout.component';
+import { AuthInterceptorService } from './auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,11 @@ import { WithLayoutComponent } from './with-layout/with-layout.component';
     LoginModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

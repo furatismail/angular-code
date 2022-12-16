@@ -1,11 +1,13 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   cart: Array<string> = [];
   title = 'Ahoj z app komponenty'
 
@@ -15,7 +17,17 @@ export class AppComponent {
     "Vetřelec vs Predator 3"
   ]
 
-  constructor() {
+  constructor(private authService: AuthService, private router: Router) {
+
+  }
+
+  ngOnInit() {
+    const token = localStorage.getItem("token");
+    //api call...
+    if(token) {
+      this.authService.tokenSubject$.next({token});
+      this.router.navigate(['/system/main']);
+    }
   }
 
   updateCart($event: string) {

@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 import { BlankComponent } from '../blank/blank.component';
 import { AboutUsComponent } from '../pages/about-us/about-us.component';
 import { LoginComponent } from '../pages/login/login.component';
-import { EditComponent } from '../pages/main/edit/edit.component';
 import { MainComponent } from '../pages/main/main.component';
-import { AdminComponent } from '../pages/main/new/admin/admin.component';
-import { NewComponent } from '../pages/main/new/new.component';
 import { ParentComponent } from '../pages/parent-child/parent/parent.component';
 import { ReactiveSignUpComponent } from '../pages/reactive-sign-up/reactive-sign-up.component';
 import { SignUpComponent } from '../pages/sign-up/sign-up.component';
@@ -17,7 +15,7 @@ const routes: Routes = [
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "system/main"
+    redirectTo: "login"
   },
 
   {
@@ -38,14 +36,17 @@ const routes: Routes = [
       {
         path: "main",
         component: MainComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: "about-us",
-        component: AboutUsComponent
+        component: AboutUsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: "sign-up",
-        component: SignUpComponent
+        component: SignUpComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: "parent-child",
